@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+    <p>{{ enigme.id }}. {{ enigme.question }}</p>
+
+<form action="" method="post">
+
+    <button type="submit" class="btn btn-secondary btn-sm" name="response" value="{{ enigme.vrai }}">
+        {{ enigme.vrai }}
+    </button>
+
+
+    <button type="submit" class="btn btn-secondary btn-sm" name="response" value="{{ enigme.faux }}">
+        {{ enigme.faux }}
+    </button>
+
+</form>
+
+
+    <a href="/">Back</a>
+    <!-- <a href="/enigme/edit/{{ enigme.id }}">Edit</a>
+    <a href="/enigme/delete/{{ enigme.id }}">Supprimer</a>-->
+
+{% endblock %}
