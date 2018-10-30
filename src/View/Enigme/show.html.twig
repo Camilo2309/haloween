@@ -1,9 +1,20 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Enigme {{ enigme.question }}</h1>
+
     <p>{{ enigme.id }}. {{ enigme.question }}</p>
-    <a href="/enigme/edit/{{ enigme.id }}">Edit</a>
-    <a href="/enigme/delete/{{ enigme.id }}">Supprimer</a>
+
+    <button type="button" class="btn btn-secondary btn-lg">
+        {{ enigme.vrai }}
+    </button>
+
+    <button type="button" class="btn btn-secondary btn-lg">
+        {{ enigme.faux }}
+    </button>
+
+
     <a href="/">Back</a>
+    <!-- <a href="/enigme/edit/{{ enigme.id }}">Edit</a>
+    <a href="/enigme/delete/{{ enigme.id }}">Supprimer</a>-->
+
 {% endblock %}
