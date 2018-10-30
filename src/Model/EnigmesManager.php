@@ -17,7 +17,7 @@ class EnigmesManager extends AbstractManager
     /**
      *
      */
-    const TABLE = 'enigmes';
+    const TABLE = 'enigme';
 
     /**
      *  Initializes this class.

@@ -11,7 +11,7 @@
 
 $routes = [
 
-    'Enigme' => [ // Controller
+    'Enigmes' => [ // Controller
         ['index', '/', 'GET'], // action, url, method
         ['add', '/enigme/add', ['GET', 'POST']], // action, url, method
         ['edit', '/enigme/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
