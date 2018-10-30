@@ -15,7 +15,7 @@ $routes = [
         ['index', '/', 'GET'], // action, url, method
         ['add', '/enigme/add', ['GET', 'POST']], // action, url, method
         ['edit', '/enigme/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
-        ['show', '/enigme/{id:\d+}', 'GET'], // action, url, method
+        ['show', '/enigme/{id:\d+}', ['GET', 'POST']], // action, url, method
         ['delete', '/enigme/delete/{id:\d+}', 'GET'], // action, url, method
 
     ],

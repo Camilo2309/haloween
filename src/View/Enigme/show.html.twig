@@ -4,13 +4,18 @@
 
     <p>{{ enigme.id }}. {{ enigme.question }}</p>
 
-    <button type="button" class="btn btn-secondary btn-lg">
+<form action="" method="post">
+
+    <button type="submit" class="btn btn-secondary btn-sm" name="response" value="{{ enigme.vrai }}">
         {{ enigme.vrai }}
     </button>
 
-    <button type="button" class="btn btn-secondary btn-lg">
+
+    <button type="submit" class="btn btn-secondary btn-sm" name="response" value="{{ enigme.faux }}">
         {{ enigme.faux }}
     </button>
+
+</form>
 
 
     <a href="/">Back</a>

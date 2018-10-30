@@ -48,8 +48,22 @@ class EnigmesController extends AbstractController
      */
     public function show(int $id)
     {
+        if($_SERVER["REQUEST_METHOD"] === "POST"){
+
+            $enigmeManager = new EnigmesManager($this->getPdo());
+            $enigme = $enigmeManager->selectOneById($id);
+
+            if($_POST["response"] === $enigme["faux"]){
+                echo "Votre réponse est fausse !";
+            } else {
+                echo "Votre réponse est vraie !";
+            }
+
+        }
+
         $enigmeManager = new EnigmesManager($this->getPdo());
         $enigme = $enigmeManager->selectOneById($id);
+
 
         return $this->twig->render('Enigme/show.html.twig', ['enigme' => $enigme]);
     }
