@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Bonbons</h1>
+    <ul>
+        {% for bonbon in bonbons %}
+            <li>{{ item.id }} {{ bonbon.name }}</a></li>
+
+        {% endfor %}
+    </ul>
+
+{% endblock %}
