@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Enigmes</h1>
+    <ul>
+        {% for enigme in enigmes %}
+            <li><a href="/enigme/{{ enigme.id }}">{{ enigme.id }}. {{ enigme.question }}</a></li>
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+    </ul>
+    <a href="/enigme/add">Ajouter</a>
+{% endblock %}

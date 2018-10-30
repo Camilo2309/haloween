@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Enigme {{ enigme.question }}</h1>
+    <p>{{ enigme.id }}. {{ enigme.question }}</p>
+    <a href="/enigme/edit/{{ enigme.id }}">Edit</a>
+    <a href="/enigme/delete/{{ enigme.id }}">Supprimer</a>
+    <a href="/">Back</a>
+{% endblock %}

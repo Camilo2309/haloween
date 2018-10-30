@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="hack@localhost" uuid="88a3acc1-35f8-41e4-87ea-eecce9fabb91">
+    <data-source source="LOCAL" name="enigmes@localhost" uuid="4569c3e7-d710-46ed-992a-4e27f72dcfa3">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/hack</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/enigmes</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
