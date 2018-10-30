@@ -18,6 +18,8 @@ $routes = [
         ['show', '/enigme/{id:\d+}', 'GET'], // action, url, method
         ['delete', '/enigme/delete/{id:\d+}', 'GET'], // action, url, method
 
+    ],
+
     'Bonbon' => [ // Controller
         ['indexBonbon', '/Bonbon/index', 'GET'], // action, url, method
        // ['add', '/item/add', ['GET', 'POST']], // action, url, method
