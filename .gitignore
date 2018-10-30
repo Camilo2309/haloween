@@ -2,3 +2,11 @@
 /temp/*
 *.cache
 app/db.php
+.idea
+.idea/dataSources/
+.idea/haloween.iml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+enigmes.sql
