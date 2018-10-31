@@ -27,8 +27,8 @@ class BonbonController extends AbstractController
     {
         $bonbonManager = new BonbonManager($this->getPdo());
         $bonbon = $bonbonManager->selectOneById($id);
-
-        return $this->twig->render('Bonbon/show.html.twig', ['bonbon' => $bonbon]);
+        header('Content-Type: application/json');
+        return json_encode($bonbon);
     }
 
 }

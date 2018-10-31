@@ -40,7 +40,7 @@ $routes = [
     ],
 
     'Map' => [
-        ['show', '/map', 'GET']
+        ['show', '/map', ['GET', 'POST']]
     ],
 
 ];

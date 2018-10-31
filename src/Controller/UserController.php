@@ -14,17 +14,17 @@ use Model\UserManager;
 use Model\User;
 
 
-
-
 class UserController extends AbstractController
 {
-  /*  public function __construct()
-    {
-        parent:: __construct();
-        if ($_SERVER['REQUEST_URI'] != '/login'){
-            $this->verifyUser();
-        }
-    }*/
+
+//    public function __construct()
+//    {
+//        parent:: __construct();
+//        if ($_SERVER['REQUEST_URI'] != '/login'){
+//            $this->verifyUser();
+//        }
+//    }
+
 
     public function suscribeUser()
     {
@@ -32,7 +32,7 @@ class UserController extends AbstractController
 
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // appeler le manager
+
             $userManager = new UserManager($this->getPdo());
 
             if (strlen($_POST['pseudo']) < 2 || strlen($_POST['pseudo']) > 15)
@@ -67,7 +67,7 @@ class UserController extends AbstractController
     {
         // Si user connecter
         if (isset($_SESSION['user'])) {
-            //TODO Renvoyer vers l'index
+
             header('Location: /map');
             exit();
         }
@@ -76,7 +76,6 @@ class UserController extends AbstractController
 
         if (!empty($_POST)) {
 
-            // Appeler le manager
             $auth = new UserManager($this->getPdo());
             $user = $auth->loginUser($_POST['pseudo']);
 
@@ -88,8 +87,8 @@ class UserController extends AbstractController
                         "password" => $user->getPassword(),
                         'message'=> 'Vous êtes connecté',
                     ];
-                    // TODO Renvoyer vers le bonne page
-                    header('Location: /index');
+
+                    header('Location: /map');
 
                 }else{
                     $errorLoginUser = 'Identifiants incorrects ';
@@ -100,14 +99,15 @@ class UserController extends AbstractController
                 $errorLoginUser = 'Identifiants incorrects';
             }
         }
+
         return $this->twig->render('login.html.twig', ["errorLoginUser" => $errorLoginUser]);
     }
 
-    public function logout()
-    {
-        session_start();
-        session_destroy();
-        header('Location: /login');
-    }
+//    public function logout()
+//    {
+//        session_start();
+//        session_destroy();
+//        header('Location: /login');
+//    }
 
 }
