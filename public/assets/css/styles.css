@@ -1,4 +1,11 @@
-/* ----loginUser page----- */
+@font-face {
+    font-family: 'cf_halloweenregular';
+    src: url('../font/cfhalloween-regular-webfont.woff2') format('woff2'),
+    url('../font/cfhalloween-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}/* ----loginUser page----- */
 /* -------------------- */
 
 .form-heading
@@ -9,6 +16,7 @@
     color:#FF3D00;
     font-size:2em;
     margin:0 0 55px 0;
+    font-family:'cf_halloweenregular', 'Roboto', sans-serif;
 }
 .panel p { color:#777777; font-size:1.5em; margin-bottom:30px; line-height:24px;}
 .login-form .form-control {
@@ -186,7 +194,7 @@ body {
     background: linear-gradient(to top, #424242, #424242);
     background-size: cover;
     background-attachment: fixed;
-    font-family:'CFHalloween', 'Roboto', sans-serif;
+    font-family:'cf_halloweenregular', 'Roboto', sans-serif;
 }
 
 h1 {
@@ -196,7 +204,7 @@ h1 {
     font-weight: 100;
     text-transform: capitalize;
     letter-spacing: 3px;
-    font-family:'CFHalloween', 'Roboto', sans-serif;
+    font-family:'cf_halloweenregular', 'Roboto', sans-serif;
 }
 
 /*-- main --*/
