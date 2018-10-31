@@ -93,7 +93,7 @@ CREATE TABLE `enigme` (
 -- Contenu de la table `enigme`
 --
 
-INSERT INTO `enigme` (`id`, `question`, `reponse`) VALUES
+INSERT INTO `enigme` (`id`, `question`, vrai) VALUES
 (1, 'Ma reponse est simple, mais je suis compliquee\r\nCelui qui me trouve dans le conte, est sauve\r\nL\'imagination, pour me connaitre, est la clef\r\nQui suis-je ?', 'L\'enigme'),
 (2, 'Ma legende est nee d\'un prince\r\nJe ne suis pas vivant mais je ne suis pas mort\r\nMon nom signifie le dragon\r\nJe suis poussiere au soleil\r\nQui suis-je ?', 'Dracula'),
 (3, 'Les yeux ouverts tu ne me vois pas\r\nJ\'aime les recoins, les cavernes\r\nJe vis aussi au fond des mers\r\nQui suis-je ?	', 'L\'obscurite'),
