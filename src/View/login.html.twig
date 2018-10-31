@@ -2,32 +2,31 @@
 {% block loginUser %}
 
     <div class="container content">
-        {#<h1 class="form-heading"></h1>#}
+        <h1 class="form-heading"></h1>
         <div class="login-form">
             <div class="main-div">
                 <div class="panel">
 
+                    <h2>CONNECT TOI AVANT QU'IL SOIT TROP TARD !</h2>
 
-                    <h2>Connectez-vous</h2>
                     {% if errorLoginUser %}
-
                         <div class="alert alert-danger" role="alert">
                             {{ errorLoginUser }}</div>
                     {% endif %}
 
-                    <p>Veuillez entrer votre pseudo et votre mot de passe</p>
+                    <p>ENTRE TON SPEUDO ET TON MON DE PASSE</p>
                 </div>
                 <form action="#" method="post" id="Login">
 
                     <div class="form-group">
-                        <input type="text" name="pseudo" class="form-control" id="inputEmail" placeholder="Votre pseudo">
+                        <input type="text" name="pseudo" class="form-control" id="inputEmail" placeholder="Ton pseudo">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Mot de passe">
+                        <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Ton mot de passe">
                     </div>
 
-                    <button type="submit" name="connection" value="" class="btn btn-primary">Login</button>
+                    <button type="submit" name="connection" value="" class="btn btn-primary">Fonce</button>
 
                 </form>
             </div>

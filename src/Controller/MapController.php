@@ -52,6 +52,7 @@ class MapController extends AbstractController {
             'enigme' => $enigmesById,
             'errors' => $this->errors,
         ]);
+        return $this->twig->render('Map/show.html.twig', ['adresses' => $allAdress, 'bonbons' => $allBonbons, "session" => $_SESSION]);
     }
 
 }
