@@ -28,6 +28,11 @@ $routes = [
       //  ['delete', '/item/delete/{id:\d+}', 'GET'], // action, url, method
     ],
 
+    'User' => [
+        ['suscribeUser', '/register', ['GET','POST']], // Register page
+        ['logUser', '/login', ['GET','POST']], //  Login page
+    ],
+
     'Adresse' => [
         ['indexAdresse', '/Adresse/index', 'GET'],
     ],
@@ -36,5 +41,4 @@ $routes = [
         ['show', '/map', 'GET']
     ],
 
-    
 ];
