@@ -16,6 +16,7 @@ use Model\User;
 
 class UserController extends AbstractController
 {
+
 //    public function __construct()
 //    {
 //        parent:: __construct();
@@ -23,6 +24,7 @@ class UserController extends AbstractController
 //            $this->verifyUser();
 //        }
 //    }
+
 
     public function suscribeUser()
     {
@@ -35,16 +37,16 @@ class UserController extends AbstractController
 
             if (strlen($_POST['pseudo']) < 2 || strlen($_POST['pseudo']) > 15)
             {
-                $errorRegister['pseudo'] = "Le pseudo doit comporter entre 2 et 15 caractères";
+                $errorRegister['pseudo'] = "LE PSEUDO DOIT COMPORTER ENTRE 2 ET 15 CARACTERES";
             }
             // Vérifie que le pseudo qu'on envoi n'est pas en base de donnée
             if ($userManager->existUser($_POST['pseudo']))
             {
-                $errorRegister['pseudo'] = "Trop tard le pseudo est déja utilisé.";
+                $errorRegister['pseudo'] = "TROP TARD LE PSEUDO EST DEJA UTILISE.";
             }
             if ($_POST['password'] !== ($_POST['password_control']))
             {
-                $errorRegister['password'] = "Les mots de passe saisis ne sont pas identiques.";
+                $errorRegister['password'] = "LES MOTS DE PASSE SAISIS NE SONT PAS IDENTIQUES.";
             }
             if (empty($errorRegister))
             {
@@ -83,29 +85,23 @@ class UserController extends AbstractController
                     $_SESSION['user'] = [
                         "pseudo" => $user->getPseudo(),
                         "password" => $user->getPassword(),
-                        'message'=> 'Vous êtes connecté',
+                        'message'=> 'VOUS ETES CONNECTE !',
                     ];
 
                     header('Location: /map');
 
                 }else{
-                    $errorLoginUser = 'Identifiants incorrects ';
+                    $errorLoginUser = 'IDENTIFIANTS INCORECTS ';
 
                 }
             }
             else {
-                $errorLoginUser = 'Identifiants incorrects';
+                $errorLoginUser = 'IDENTIFIANTS INCORECTS';
             }
         }
 
         return $this->twig->render('login.html.twig', ["errorLoginUser" => $errorLoginUser]);
     }
 
-//    public function logout()
-//    {
-//        session_start();
-//        session_destroy();
-//        header('Location: /login');
-//    }
 
 }

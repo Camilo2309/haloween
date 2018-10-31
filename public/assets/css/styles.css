@@ -75,6 +75,8 @@
 
 span {
     color: red;
+
+
 }
 
 /* ----SignUp page----- */
@@ -215,7 +217,7 @@ h1 {
 .main-agileinfo {
     width: 35%;
     margin: 3em auto;
-    /*background: rgba(0, 0, 0, 0.18);*/
+
     background-size: cover;
 }
 
@@ -265,12 +267,12 @@ input.email, input.text.w3lpass {
 }
 
 :-moz-placeholder {
-    /* Firefox 18- */
+
     color: #fff;
 }
 
 ::-moz-placeholder {
-    /* Firefox 19+ */
+
     color: #fff;
 }
 
@@ -299,14 +301,24 @@ input[type="submit"]:hover {
 }
 
 .alert {
-    /*position: fixed;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    /*z-index: 15;*/
+
     display: none;
 }
+
 
 h5 {
     font-family: 'Roboto', sans-serif;
 }
+
+.modal1 {
+    width: 50%;
+    height: 50%;
+    margin-top: 20%;
+    background-color: #FF5722;
+
+}
+
+.bonbonDes{
+    font-family: 'Roboto', sans-serif;
+}
+
