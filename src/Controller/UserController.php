@@ -82,15 +82,14 @@ class UserController extends AbstractController
 
             if ($user) {
                 if (password_verify($_POST['password'], $user->getPassword())) {
-                    // Si password ok, creation session user
 
                     $_SESSION['user'] = [
                         "pseudo" => $user->getPseudo(),
                         "password" => $user->getPassword(),
                         'message'=> 'Vous êtes connecté',
                     ];
-
-                    header('Location: /register');
+                    // TODO Renvoyer vers le bonne page
+                    header('Location: /index');
 
                 }else{
                     $errorLoginUser = 'Identifiants incorrects ';
