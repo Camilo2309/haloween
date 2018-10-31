@@ -132,10 +132,23 @@
                 var marker, i;
 
                 for (i = 0; i < locations.length; i++) {
-                    marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                        map: map
-                    });
+
+                    if(locations[i][0] === "Votre Position"){
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                            map: map,
+                            icon:  {
+                                url: "https://svgsilh.com/svg/2308072.svg",
+                                scaledSize: new google.maps.Size(32, 32),
+                            },
+                        });
+                    } else {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                            map: map,
+                        });
+                    }
+
 
                     google.maps.event.addListener(marker, 'click', (function (marker, i) {
                         return function () {
@@ -143,28 +156,6 @@
                             infowindow.open(map, marker);
                         }
                     })(marker, i));
-                }
-
-                var citymap = {
-                    lyon: {
-                        center: {lat: 41.878, lng: -87.629},
-                        population: 15000,
-                    },
-                };
-
-
-                for (var city in citymap) {
-                    // Add the circle for this city to the map.
-                    var cityCircle = new google.maps.Circle({
-                        strokeColor: '#FF0000',
-                        strokeOpacity: 0.8,
-                        strokeWeight: 2,
-                        fillColor: '#FF0000',
-                        fillOpacity: 0.35,
-                        map: map,
-                        center: citymap[city].center,
-                        radius: Math.sqrt(citymap[city].population) * 1
-                    });
                 }
 
                 marker.setMap(map);
