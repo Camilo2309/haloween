@@ -105,8 +105,8 @@ class EnigmesController extends AbstractController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $enigmeManager = new EnigmesManager($this->getPdo());
-            $enigme = new Enigme();
-            $enigme->setTitle($_POST['question']);
+            $enigme = new Enigmes();
+            $enigme->setQuestion($_POST['question']);
             $id = $enigmeManager->insert($enigme);
             header('Location:/enigme/' . $id);
         }

@@ -2,20 +2,39 @@
 
 {% block content %}
 
-    <p>{{ enigme.id }}. {{ enigme.question }}</p>
-
-<form action="" method="post">
-
-    <button type="submit" class="btn btn-secondary btn-sm" name="response" value="{{ enigme.vrai }}">
-        {{ enigme.vrai }}
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+        Répondre
     </button>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ enigme.id }}. {{ enigme.question }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-    <button type="submit" class="btn btn-secondary btn-sm" name="response" value="{{ enigme.faux }}">
-        {{ enigme.faux }}
-    </button>
+                <div class="modal-footer">
+                    <form action="" method="post">
 
-</form>
+                        <button type="submit" class="btn btn-secondary btn-sm"  name="response" value="{{ enigme.vrai }}">
+                            {{ random([ enigme.vrai, enigme.faux ])}}
+                        </button>
+
+
+                        <button type="submit" class="btn btn-secondary btn-sm"  name="response" value="{{ enigme.faux }}">
+                            {{ random([ enigme.faux, enigme.vrai ]) }}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <a href="/">Back</a>
