@@ -290,6 +290,7 @@ input[type="submit"] {
     width: 100%;
     margin: 2em 0;
     letter-spacing: 4px;
+    border-radius:.50em;
 }
 
 input[type="submit"]:hover {
