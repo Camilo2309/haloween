@@ -1,14 +1,126 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Enigmes</h1>
-    <ul>
-        {% for enigme in enigmes %}
-            <li><a href="/enigme/{{ enigme.id }}">{{ enigme.id }}. {{ enigme.question }}</a></li>
-        {% else %}
-            <li>Nothing to display</li>
-        {% endfor %}
-    </ul>
-    <a href="/enigme/add">Ajouter</a>
+
+    <main role="main">
+
+        <section class="jumbotron text-center">
+            <div class="container ">
+
+                <h1 class="jumbotron-heading imagebg">CATCH ME I'M FAMOUS</h1>
+                <p class="lead text-muted">SERAS-TU ASSEZ MALIN POUR TOUS LES RETROUVER ?</p>
+                <p>
+                    <a href="/register" class="btn btn-secondary my-2">Jouer...</a>
+                </p>
+            </div>
+        </section>
+
+        <div class="album py-1 bg-dark">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="assets/images/arlequin.jpeg" alt="">
+                            <div class="card-body">
+                                <p class="card-text bonbonDes">ARLEQUIN : Un carnaval de goûts acidulés
+
+                                    Le goût de l’Arlequin est unique, indéfinissable, et source de débats: tantôt acidulé, tantôt doux, tantôt fruité.
+                                    Un seul moyen de trancher : le déguster !</p>
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="assets/images/brulee.jpeg" alt="">
+                            <div class="card-body">
+                                <p class="card-text bonbonDes">TETE BRULEE : Têtes brulées : le fameux bonbon qui te secoue la tête !
+                                    Aurez-vous la tête assez dure pour supporter cette confiserie à l'enrobage acide ? Disponible en plusieurs formats.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top " src="assets/images/carambar.jpeg" alt="">
+                            <div class="card-body">
+                                <p class="card-text bonbonDes">CARAMBAR : Aux fruits, goût nougat etc... la gamme Carambar déborde de créativité et se renouvelle sans cesse. Du très classique Carambar au caramel qui a donné son nom à cette confiserie inimitable </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="assets/images/chocobon.jpeg" alt="">
+                            <div class="card-body">
+                                <p class="card-text bonbonDes">SHOKO BONS : Un bonbon de chocolat qui procure un vrai plaisir gourmand aux enfants et aux adultes grâce à sa recette unique qui allie le bon goût du chocolat KINDER, un cœur au lait fondant et des éclats de noisettes croquantes</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="assets/images/chupachups.jpeg" alt="">
+                            <div class="card-body">
+                                <p class="card-text bonbonDes">CHUPA CHUPS :
+                                    Amateurs de sucettes, découvrez l'univers Chupa Chups ! Chupa Chups est une marque de sucettes créée en 1958 par l'Espagnol Enric Bernat, qui voulait créer un bonbon qui ne salisse pas les doigts.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="assets/images/dragibus.jpeg" alt="">
+                            <div class="card-body">
+                                <p class="card-text bonbonDes">DRAGIBUS : Ces petites billes colorées réjouissent nos palets depuis plus de 40 ans : les Dragibus sont nés en 1973 et font depuis le bonheur des grands et des petits. Rose, vert, bleu, noir, jaune, violet, blanc… chacun a sa couleur préférée.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="assets/images/kinder.jpeg" alt="">
+                            <div class="card-body">
+                                <p class="card-text bonbonDes">KINDER SURPRISE : c'est un œuf unique qui renferme toute la saveur du chocolat KINDER, associée à un effet de surprise, et un cadeau toujours nouveau. Contient des surprises a l'intérieur pour fille ou garçon.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="assets/images/schtroumpfs.jpeg" alt="">
+                            <div class="card-body">
+                                <p class="card-text bonbonDes">SCHTROUMPFS : Il y a ceux qui voient la vie en rose… et ceux qui la schtroumpfent en bleu ! le bonbon Schtroumpf fait partie des préférés des Français, avec sa jolie couleur vive et son apparence aussi ludique que sympathique !</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="assets/images/tagada.jpeg" alt="">
+                            <div class="card-body">
+                                <p class="card-text bonbonDes">FRAISE TAGADA : Ah la fraise Tagada ! Sa seule évocation est gourmande, sa seule image est appétissante ! Cette petite boule aérée couverte de sucre fin coloré séduit les grands et les petits gourmands depuis près de 50 ans.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
 
 {% endblock %}

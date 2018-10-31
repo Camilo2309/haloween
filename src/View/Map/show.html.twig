@@ -4,6 +4,9 @@
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
     <style>
         /* Always set the map height explicitly to define the size of the div
          * element that contains the map. */
@@ -35,16 +38,73 @@
         }
 
     </style>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
 </head>
 <body>
+{% if session.user %}
+
+    <div id="alert" class="alert alert-success">
+        <a onclick="showStuff()" class="close" >x</a>
+        <p>{{ session.user.message}}</p>
+
+    </div>
+{% endif %}
+
+<script>
+    errorJS = null;
+    {% if errors %}
+        {% for error in errors %}
+            errorJS = "{{ error }}";
+        {% endfor %}
+    alert(errorJS)
+{% endif %}
+
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{ enigme.id }}. {{ enigme.question }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-footer">
+                <form action="" method="post">
+
+                    <input type="hidden" name="id" value="{{ enigme.id }}">
+
+                    <input type="hidden" id="deleteMarkerId" name="marker_id">
+
+                    <button type="submit" class="btn btn-secondary btn-sm"  name="response" value="{{ enigme.vrai }}">
+                        {{ random([ enigme.vrai, enigme.faux ])}}
+                    </button>
+
+
+                    <button type="submit" class="btn btn-secondary btn-sm"  name="response" value="{{ enigme.faux }}">
+                        {{ random([ enigme.faux, enigme.vrai ]) }}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <div id="loader" class="loader"></div>
-
-
 <div id="map"></div>
 
 
 <script>
+
 
     let loader = document.getElementById("loader");
     setTimeout(() => {
@@ -54,13 +114,14 @@
 
     let test = [];
 {% for adress in adresses %}
-    test.push(["{{adress["adresse"]}}", "{{ adress["latitude"] }}", "{{ adress["longitude"] }}"]);
+    test.push(["{{adress["adresse"]}}", "{{ adress["latitude"] }}", "{{ adress["longitude"] }}", "{{ adress["id"] }}"]);
 {% endfor %}
 
 </script>
 
 
 <script>
+
 
     let map;
     let contentStr = "";
@@ -70,6 +131,7 @@
         let lngNav;
         let infos;
         let locations;
+        let locationADelete;
 
         function init(position) {
             latNav = position[0];
@@ -87,12 +149,13 @@
                 let randBonbons = Math.floor(Math.random() * val.length);
                 let resultBonbons = val[randBonbons];
 
+                const btnbtn = 'Vous avez 3 essais : <br/> <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal"> Répondre à la question </button>';
+
             test.forEach((element) => {
-                locations.push([resultBonbons[0], Number(element[1]), Number(element[2])]);
+                locations.push([btnbtn,Number(element[1]), Number(element[2]), Number(element[3])]);
             });
 
         }
-
 
         // fonction qui permet de faire une récupération de la position actuelle.
         setInterval(function () {
@@ -109,7 +172,6 @@
 
         }, 3000);
 
-
         var infowindow = new google.maps.InfoWindow({
             content: contentStr,
         })
@@ -118,7 +180,7 @@
         setTimeout(function () {
             map = new google.maps.Map(document.getElementById('map'), {
                 center: infos,
-                zoom: 25,
+                zoom: 14,
             });
 
 
@@ -144,14 +206,21 @@
                         });
                     } else {
                         marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                            position: new google.maps.LatLng(locations[i][1], locations[i][2], locations[i][3]),
                             map: map,
+                            icon:  {
+                                url: "https://d1u5p3l4wpay3k.cloudfront.net/fortnite_gamepedia/1/11/Candy_icon.png",
+                                scaledSize: new google.maps.Size(40, 40),
+                            },
+
                         });
                     }
 
 
                     google.maps.event.addListener(marker, 'click', (function (marker, i) {
                         return function () {
+                            let elementForDelete = document.getElementById("deleteMarkerId");
+                            elementForDelete.setAttribute("value", locations[i][3]);
                             infowindow.setContent(locations[i][0]);
                             infowindow.open(map, marker);
                         }
@@ -159,14 +228,23 @@
                 }
 
                 marker.setMap(map);
-                console.log("Aboubaka");
             }, 3000);
         }, 3500);
     }
+
 </script>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU8skzrb_CM8YtBfN96X-jyMK3p54YScI&callback=initMap" async defer></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/js/modal.js"></script>
+<script src="/assets/js/alert.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="../assets/js/alert.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU8skzrb_CM8YtBfN96X-jyMK3p54YScI&callback=initMap"
         async defer></script>
+
 
 
 </body>

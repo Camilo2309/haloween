@@ -11,8 +11,10 @@
 
 $routes = [
 
+
     'Enigmes' => [ // Controller
-        ['index', '/', 'GET'], // action, url, method
+        ['index', '/', 'GET'],
+        ['index', '/enigme', 'GET'], // action, url, method
         ['add', '/enigme/add', ['GET', 'POST']], // action, url, method
         ['edit', '/enigme/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
         ['show', '/enigme/{id:\d+}', ['GET', 'POST']], // action, url, method
@@ -28,13 +30,17 @@ $routes = [
       //  ['delete', '/item/delete/{id:\d+}', 'GET'], // action, url, method
     ],
 
+    'User' => [
+        ['suscribeUser', '/register', ['GET','POST']], // Register page
+        ['logUser', '/login', ['GET','POST']], //  Login page
+    ],
+
     'Adresse' => [
         ['indexAdresse', '/Adresse/index', 'GET'],
     ],
 
     'Map' => [
-        ['show', '/map', 'GET']
+        ['show', '/map', ['GET', 'POST']]
     ],
 
-    
 ];
