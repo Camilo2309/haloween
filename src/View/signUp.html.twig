@@ -1,7 +1,9 @@
 {% extends 'layout.html.twig' %}
 {% block register %}
     <div class="main-w3layouts wrapper">
-        <h1>Inscription Halloween Party</h1>
+        <h1>Inscription Halloween Party: <br>
+            Un jeu de malade pour des malades</h1>
+
         <div class="main-agileinfo">
             <div class="agileits-top">
                 <form action="#" method="post">
@@ -9,9 +11,9 @@
 
                     <input class="text" type="text" id="pseudo" name="pseudo" placeholder="Ton pseudo" required="">
                     <span>{{ errorRegister.pseudo }}</span>
-                    <input class="text" type="password" id="password" name="password" placeholder="Mot de passe" required="">
+                    <input class="text" type="password" id="password" name="password" placeholder="Ton mot de passe" required="">
                     <span>{{ errorRegister.password }}</span>
-                    <input class="text w3lpass" type="password" id="password" name="password_control" placeholder="Confirmer mot de passe" required="">
+                    <input class="text w3lpass" type="password" id="password" name="password_control" placeholder="Confirme ton mot de passe" required="">
                     <input type="submit" name="inscription" value="ENVOYER">
 
                 </form>
