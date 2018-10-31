@@ -26,10 +26,15 @@ $routes = [
       //  ['edit', '/item/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
         ['show', '/item/{id:\d+}', 'GET'], // action, url, method
       //  ['delete', '/item/delete/{id:\d+}', 'GET'], // action, url, method
-
     ],
 
     'Adresse' => [
         ['indexAdresse', '/Adresse/index', 'GET'],
-    ]
+    ],
+
+    'Map' => [
+        ['show', '/map', 'GET']
+    ],
+
+    
 ];

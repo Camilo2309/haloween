@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 5.7.24, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.12, for macos10.13 (x86_64)
 --
--- Host: localhost    Database: enigmes
+-- Host: localhost    Database: hack
 -- ------------------------------------------------------
--- Server version	5.7.24-0ubuntu0.18.04.1
+-- Server version	8.0.12
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+ SET NAMES utf8mb4 ;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,10 +21,12 @@
 
 DROP TABLE IF EXISTS `adresse`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `adresse` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `adresse` varchar(255) NOT NULL,
+  `latitude` varchar(255) DEFAULT NULL,
+  `longitude` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -35,18 +37,18 @@ CREATE TABLE `adresse` (
 
 LOCK TABLES `adresse` WRITE;
 /*!40000 ALTER TABLE `adresse` DISABLE KEYS */;
-INSERT INTO `adresse` VALUES (1,'1 place de l’hippodrome, 69002 Lyon'),(2,'112 Cours Charlemagne, 69002 Lyon'),(3,'100 Cours Charlemagne, 69002 Lyon'),(4,'10 Place des Archives, 69002 Lyon'),(5,'17 Rue Delandine, 69002 Lyon'),(6,'14 Cours de Verdun Gensoul, 69002 Lyon'),(7,'73 Cours Charlemagne, 69002 Lyon'),(8,'1 Place des Archives, 69002 Lyon'),(9,'13 Rue Delandine, 69002 Lyon'),(10,'30 Cours de Verdun Perrache, 69002 Lyon');
+INSERT INTO `adresse` VALUES (1,'1 place de l’hippodrome, 69002 Lyon','45.7450356','4.823525700000005'),(2,'112 Cours Charlemagne, 69002 Lyon','45.7408777','4.818954699999949'),(3,'100 Cours Charlemagne, 69002 Lyon','45.7424072','4.81968710000001'),(4,'10 Place des Archives, 69002 Lyon','45.746622','4.826411000000007'),(5,'17 Rue Delandine, 69002 Lyon','45.7461607','4.827439899999945'),(6,'14 Cours de Verdun Gensoul, 69002 Lyon','45.7477025','4.827386299999944'),(7,'73 Cours Charlemagne, 69002 Lyon','45.743309','4.8216434999999365'),(8,'1 Place des Archives, 69002 Lyon','45.7477966','4.824626699999953'),(9,'13 Rue Delandine, 69002 Lyon','45.7469504','4.827567300000055'),(10,'30 Cours de Verdun Perrache, 69002 Lyon','45.74829709999999','4.828240700000038');
 /*!40000 ALTER TABLE `adresse` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `bonbons`
+-- Table structure for table `bonbon`
 --
 
-DROP TABLE IF EXISTS `bonbons`;
+DROP TABLE IF EXISTS `bonbon`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `bonbons` (
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `bonbon` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `image` text NOT NULL,
@@ -55,13 +57,13 @@ CREATE TABLE `bonbons` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `bonbons`
+-- Dumping data for table `bonbon`
 --
 
-LOCK TABLES `bonbons` WRITE;
-/*!40000 ALTER TABLE `bonbons` DISABLE KEYS */;
-INSERT INTO bonbon VALUES (1,'Arlequin',''),(2,'Dragibus',''),(3,'Shoko-bons',''),(4,'Carambar',''),(5,'Fraise Tagada',''),(6,'Kinder Surprise',''),(7,'Chupa-Chups',''),(8,'Malabar',''),(9,'Schtroumpfs',''),(10,'Tetes Brulees','');
-/*!40000 ALTER TABLE `bonbons` ENABLE KEYS */;
+LOCK TABLES `bonbon` WRITE;
+/*!40000 ALTER TABLE `bonbon` DISABLE KEYS */;
+INSERT INTO `bonbon` VALUES (1,'Arlequin',''),(2,'Dragibus',''),(3,'Shoko-bons',''),(4,'Carambar',''),(5,'Fraise Tagada',''),(6,'Kinder Surprise',''),(7,'Chupa-Chups',''),(8,'Malabar',''),(9,'Schtroumpfs',''),(10,'Tetes Brulees','');
+/*!40000 ALTER TABLE `bonbon` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -70,7 +72,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `enigme`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `enigme` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `question` varchar(255) DEFAULT NULL,
@@ -98,4 +100,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-30 16:30:31
+-- Dump completed on 2018-10-30 18:45:03
