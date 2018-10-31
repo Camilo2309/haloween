@@ -18,13 +18,13 @@ use Model\User;
 
 class UserController extends AbstractController
 {
-    public function __construct()
+  /*  public function __construct()
     {
         parent:: __construct();
         if ($_SERVER['REQUEST_URI'] != '/login'){
             $this->verifyUser();
         }
-    }
+    }*/
 
     public function suscribeUser()
     {
@@ -55,7 +55,7 @@ class UserController extends AbstractController
                 $newUser->setPassword($_POST['password']);
                 $id = $userManager->suscribe($newUser);
                 // TODO Renvoyer vers le bonne page
-                header('Location: /index');
+                header('Location: /login');
             }
 
         }
@@ -68,7 +68,7 @@ class UserController extends AbstractController
         // Si user connecter
         if (isset($_SESSION['user'])) {
             //TODO Renvoyer vers l'index
-            header('Location: /index');
+            header('Location: /map');
             exit();
         }
 
