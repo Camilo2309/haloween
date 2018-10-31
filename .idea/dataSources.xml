@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-<<<<<<< HEAD
-    <data-source source="LOCAL" name="enigmes@localhost" uuid="7246c142-ed62-41ec-bf0e-7720fb619797">
-=======
-<<<<<<< HEAD
-    <data-source source="LOCAL" name="enigmes@localhost" uuid="4569c3e7-d710-46ed-992a-4e27f72dcfa3">
-      <driver-ref>mysql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/enigmes</jdbc-url>
-      <driver-properties>
-        <property name="autoReconnect" value="true" />
-        <property name="zeroDateTimeBehavior" value="convertToNull" />
-        <property name="tinyInt1isBit" value="false" />
-        <property name="characterEncoding" value="utf8" />
-        <property name="characterSetResults" value="utf8" />
-        <property name="yearIsDateType" value="false" />
-      </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="enigmes@localhost [2]" uuid="bc4ea1be-c6cc-44fd-bb67-01a1066310c4">
-=======
-<<<<<<< HEAD
-    <data-source source="LOCAL" name="enigmes@localhost" uuid="3befaeb5-21ce-4182-88f9-bed221711ec8">
-=======
-
-    <data-source source="LOCAL" name="enigmes@localhost" uuid="4569c3e7-d710-46ed-992a-4e27f72dcfa3">
-
->>>>>>> 2247b976a9ecd01696f150c28f18f0d1d2d5981a
->>>>>>> 73ea2bc1d27f59af74b305bc97f32a696b89e5db
->>>>>>> 1b8dd5be3db583fb9e197332c6c79f25ede19461
+    <data-source source="LOCAL" name="enigmes@localhost" uuid="a74298a2-4f1a-4ed1-b6d6-5175b76c9719">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
