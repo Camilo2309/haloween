@@ -7,27 +7,27 @@
             <div class="main-div">
                 <div class="panel">
 
+                    <h2>Connecte-toi avant qu'il ne soit trop tard</h2>
 
-                    <h2>Connectez-vous</h2>
                     {% if errorLoginUser %}
 
                         <div class="alert alert-danger" role="alert">
                             {{ errorLoginUser }}</div>
                     {% endif %}
 
-                    <p>Veuillez entrer votre pseudo et votre mot de passe</p>
+                    <p>Entre ton pseudo et ton mot de passe</p>
                 </div>
                 <form action="#" method="post" id="Login">
 
                     <div class="form-group">
-                        <input type="text" name="pseudo" class="form-control" id="inputEmail" placeholder="Votre pseudo">
+                        <input type="text" name="pseudo" class="form-control" id="inputEmail" placeholder="Ton pseudo">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Mot de passe">
+                        <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Ton mot de passe">
                     </div>
 
-                    <button type="submit" name="connection" value="" class="btn btn-primary">Login</button>
+                    <button type="submit" name="connection" value="" class="btn btn-primary">Fonce</button>
 
                 </form>
             </div>

@@ -4,6 +4,9 @@
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
     <style>
         /* Always set the map height explicitly to define the size of the div
          * element that contains the map. */
@@ -37,6 +40,14 @@
     </style>
 </head>
 <body>
+{% if session.user %}
+
+    <div id="alert" class="alert alert-success">
+        <a onclick="showStuff()" class="close" >x</a>
+        <p>{{ session.user.message}}</p>
+
+    </div>
+{% endif %}
 
 <div id="loader" class="loader"></div>
 
@@ -45,6 +56,7 @@
 
 
 <script>
+
 
     let loader = document.getElementById("loader");
     setTimeout(() => {
@@ -118,7 +130,7 @@
         setTimeout(function () {
             map = new google.maps.Map(document.getElementById('map'), {
                 center: infos,
-                zoom: 25,
+                zoom: 14,
             });
 
 
@@ -164,9 +176,11 @@
         }, 3500);
     }
 </script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="../assets/js/alert.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU8skzrb_CM8YtBfN96X-jyMK3p54YScI&callback=initMap"
         async defer></script>
+
 
 
 </body>

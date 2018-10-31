@@ -55,7 +55,7 @@ class UserController extends AbstractController
                 $newUser->setPassword($_POST['password']);
                 $id = $userManager->suscribe($newUser);
                 // TODO Renvoyer vers le bonne page
-                header('Location: /index');
+                header('Location: /login');
             }
 
         }
@@ -68,7 +68,7 @@ class UserController extends AbstractController
         // Si user connecter
         if (isset($_SESSION['user'])) {
             //TODO Renvoyer vers l'index
-            header('Location: /index');
+            header('Location: /map');
             exit();
         }
 
@@ -89,17 +89,26 @@ class UserController extends AbstractController
                         'message'=> 'Vous êtes connecté',
                     ];
                     // TODO Renvoyer vers le bonne page
-                    header('Location: /index');
-
-                }else{
-                    $errorLoginUser = 'Identifiants incorrects ';
-
+                    header('Location: /map');
                 }
+            } else {
+                $errorLoginUser = 'Identifiant incorrect';
             }
-            else {
-                $errorLoginUser = 'Identifiants incorrects';
-            }
+
+
         }
+
+//                }else
+//                   {
+//                    $errorLoginUser = 'Identifiants incorrects ';
+//                    var_dump($errorLoginUser);
+//
+//                }
+  //          }
+//            else {
+//                $errorLoginUser = 'Identifiants incorrects';
+//            }
+//        }
         return $this->twig->render('login.html.twig', ["errorLoginUser" => $errorLoginUser]);
     }
 

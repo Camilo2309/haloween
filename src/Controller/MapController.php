@@ -17,7 +17,7 @@ class MapController extends AbstractController {
         $allBonbons = $bonbons->selectAll();
 
 
-        return $this->twig->render('Map/show.html.twig', ['adresses' => $allAdress, 'bonbons' => $allBonbons]);
+        return $this->twig->render('Map/show.html.twig', ['adresses' => $allAdress, 'bonbons' => $allBonbons, "session" => $_SESSION]);
     }
 
 }
