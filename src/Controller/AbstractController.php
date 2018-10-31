@@ -46,6 +46,7 @@ abstract class AbstractController
 
         $connection = new Connection();
         $this->pdo = $connection->getPdoConnection();
+
     }
 
     /**
@@ -54,5 +55,13 @@ abstract class AbstractController
     public function getPdo(): \PDO
     {
         return $this->pdo;
+    }
+
+    public function verifyUser()
+    {
+        if(!isset($_SESSION['user'])){
+            header('Location: \login');
+            exit;
+        }
     }
 }
