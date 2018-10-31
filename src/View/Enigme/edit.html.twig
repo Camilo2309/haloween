@@ -1,0 +1,7 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Edit question {{ enigme.question }}</h1>
+    {% include 'Enigme/_form.html.twig' %}
+    <a href="/enigme/{{ enigme.id }}">Back</a>
+{% endblock %}
